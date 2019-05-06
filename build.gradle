@@ -5,14 +5,15 @@ version "1.0"
 
 repositories {
     mavenCentral()
+    maven { url "http://gotti.no-ip.org/maven/repository" }
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: '*.jar')
+    compile 'org.gotti.wurmunlimited:server-modlauncher:0.43'
 }
 
 jar {
-    archiveName "${project.name}.jar"
+    archiveFileName = "${project.name}.jar"
 }
 
 
@@ -24,5 +25,5 @@ task dist(type: Zip) {
         from fileTree(dir: 'mods', include: '*')
     })
 
-    archiveName "${project.name}-${project.version}.zip"
+    archiveFileName = "${project.name}-${project.version}.zip"
 }
